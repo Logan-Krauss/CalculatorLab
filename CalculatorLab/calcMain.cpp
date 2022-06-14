@@ -1,7 +1,7 @@
 #include "calcMain.h"
 
 wxBEGIN_EVENT_TABLE(calcMain, wxFrame)
-EVT_BUTTON(10001, OnButtonClicked)
+EVT_BUTTON(wxID_ANY, OnButtonClicked)
 wxEND_EVENT_TABLE()
 
 calcMain::calcMain() : wxFrame(/*parent*/ nullptr, wxID_ANY, "Calculator by Logan", wxPoint(50,50), wxSize(600,800))
@@ -45,12 +45,14 @@ calcMain::calcMain() : wxFrame(/*parent*/ nullptr, wxID_ANY, "Calculator by Loga
 	
 
 	wxGridSizer* grid = new wxGridSizer(nFieldWidth, nFieldHeight, 8, 8);
+
+	//Space for the text display to go
 	grid->Add(m_btna, 0, wxEXPAND);
 	grid->Add(m_btnb, 0, wxEXPAND);
 	grid->Add(m_btnc, 0, wxEXPAND);
 	grid->Add(m_btnd, 0, wxEXPAND);
 
-
+	//calculator buttons
 	grid->Add(m_btn1, 0, wxEXPAND);
 	grid->Add(m_btn2, 0, wxEXPAND);
 	grid->Add(m_btn3, 0, wxEXPAND);
@@ -76,6 +78,7 @@ calcMain::calcMain() : wxFrame(/*parent*/ nullptr, wxID_ANY, "Calculator by Loga
 	grid->Add(m_btn23, 0, wxEXPAND);
 	grid->Add(m_btn24, 0, wxEXPAND);
 
+	m_display->SetFont(font);
 	m_btn1->SetFont(font);
 	m_btn2->SetFont(font);
 	m_btn3->SetFont(font);
@@ -144,5 +147,5 @@ void calcMain::OnButtonClicked(wxCommandEvent& evt)
 		m_display->AppendText(temp);
 	}
 
-	evt.Skip();
+	/*evt.Skip();*/
 }
