@@ -1,4 +1,5 @@
 #include "calcMain.h"
+#include "ButtonFactory.h"
 
 wxBEGIN_EVENT_TABLE(calcMain, wxFrame)
 EVT_BUTTON(wxID_ANY, OnButtonClicked)
@@ -148,4 +149,6 @@ void calcMain::OnButtonClicked(wxCommandEvent& evt)
 	}
 
 	/*evt.Skip();*/
+
+	
 }
