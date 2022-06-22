@@ -1,9 +1,24 @@
 #include "calcMain.h"
 #include "ButtonFactory.h"
+#include "Singleton.h"
+#include "Command.h"
+#include <vector>
+#include <iostream>
+#include "Addition.h"
+#include "Subtracting.h"
+#include "Multiplication.h"
+#include "Division.h"
 
 wxBEGIN_EVENT_TABLE(calcMain, wxFrame)
 EVT_BUTTON(wxID_ANY, OnButtonClicked)
 wxEND_EVENT_TABLE()
+
+int one = 0;
+int two = 0;
+std::string sone = "";
+std::string stwo = "";
+std::string symbol = "";
+bool symbCheck = false;
 
 calcMain::calcMain() : wxFrame(/*parent*/ nullptr, wxID_ANY, "Calculator by Logan", wxPoint(50,50), wxSize(600,800))
 {
@@ -106,11 +121,7 @@ calcMain::calcMain() : wxFrame(/*parent*/ nullptr, wxID_ANY, "Calculator by Loga
 	m_btn24->SetFont(font);
 	
 
-	nField = new int[nFieldWidth * nFieldHeight];
-
-
-	
-	
+	nField = new int[nFieldWidth * nFieldHeight];	
 	//for (int x = 0; x < nFieldWidth; x++)
 	//{
 	//	for (int y = 0; y < nFieldHeight; y++)
@@ -127,28 +138,138 @@ calcMain::calcMain() : wxFrame(/*parent*/ nullptr, wxID_ANY, "Calculator by Loga
 	grid->Layout();
 }
 
-calcMain::~calcMain()
-{
-	
-}
+calcMain::~calcMain() {}
 
 void calcMain::OnButtonClicked(wxCommandEvent& evt)
 {
 	std::string temp = "";
-
+	std::string temp2 = "";
 	wxButton* tst = dynamic_cast<wxButton*>(evt.GetEventObject());
+	temp2 = tst->GetLabel();
+	Singleton* processor = Singleton::GetInstance();
+
+	//.c_strfunction
+	//isdigit
+	if (isdigit(temp2[0]))
+	{
+		if (symbCheck == true)
+		{
+			if (two != 0)
+			{
+				stwo = std::to_string(two);
+				stwo += tst->GetLabel();
+			}
+			else
+			{
+				stwo += tst->GetLabel();
+			}
+		}
+	}
 	if (tst == m_btn1)
 	{
 		m_display->Clear();
 	}
-	
+	else if (tst == m_btn16)
+	{
+		sone = m_display->GetValue();
+		symbol = "+";
+		m_display->AppendText("+");
+		symbCheck = true;
+	}
+	else if (tst == m_btn12)
+	{
+		sone = m_display->GetValue();
+		symbol = "-";
+		m_display->AppendText("-");
+		symbCheck = true;
+	}
+	else if (tst == m_btn4)
+	{
+		sone = m_display->GetValue();
+		symbol = "/";
+		m_display->AppendText("/");
+		symbCheck = true;
+	}
+	else if (tst == m_btn8)
+	{
+		sone = m_display->GetValue();
+		symbol = "*";
+		m_display->AppendText("*");
+		symbCheck = true;
+	}
+	else if (tst == m_btn20)
+	{
+		symbCheck = false;
+		if (symbol == "+")
+		{
+			one = wxAtoi(sone);
+			two = wxAtoi(stwo);
+			m_display->Clear();
+			Addition* addd = new Addition();
+			m_display->AppendText(addd->Execute(one, two));
+		}
+		if (symbol == "-")
+		{
+			one = wxAtoi(sone);
+			two = wxAtoi(stwo);
+			m_display->Clear();
+			Subtracting* subbb = new Subtracting();
+			m_display->AppendText(subbb->Execute(one, two));
+		}
+		else if (symbol == "/")
+		{
+			one = wxAtoi(sone);
+			two = wxAtoi(stwo);
+			m_display->Clear();
+			Division* divv = new Division();
+			m_display->AppendText(divv->Execute(one, two));
+		}
+		else if (symbol == "*")
+		{
+			one = wxAtoi(sone);
+			two = wxAtoi(stwo);
+			m_display->Clear();
+			Multiplication* divv = new Multiplication();
+			m_display->AppendText(divv->Execute(one, two));
+		}
+		//BINHEXDEC
+		/*else if (symbol == "BIN")
+		{
+			one = wxAtoi(sone);
+			two = wxAtoi(stwo);
+			m_display->Clear();
+			m_display->AppendText(processor->GetBinary());
+		}
+		else if (symbol == "HEX")
+		{
+			one = wxAtoi(sone);
+			two = wxAtoi(stwo);
+			m_display->Clear();
+			m_display->AppendText(processor->GetHexaDecimal());
+		}
+		else if (symbol == "DEC")
+		{
+			one = wxAtoi(sone);
+			two = wxAtoi(stwo);
+			m_display->Clear();
+			m_display->AppendText(processor->GetDecimal());
+		}*/
+		sone.clear();
+		stwo.clear();
+		one = 0;
+		two = 0;
+	}
 	else
 	{
 		temp += tst->GetLabel();
 		m_display->AppendText(temp);
 	}
 
-	/*evt.Skip();*/
 
+	std::vector<Command*> commands;
+
+	
+	/*evt.Skip();*/
+	
 	
 }

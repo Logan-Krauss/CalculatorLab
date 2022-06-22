@@ -134,6 +134,12 @@
     <ClInclude Include="ButtonFactory.h" />
     <ClInclude Include="Calc1.h" />
     <ClInclude Include="calcMain.h" />
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="Addition.h" />
+    <ClInclude Include="Subtracting.h" />
+    <ClInclude Include="Division.h" />
+    <ClInclude Include="Multiplication.h" />
+    <ClInclude Include="Singleton.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ButtonFactory.cpp" />
