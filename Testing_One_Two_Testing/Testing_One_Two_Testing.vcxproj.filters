@@ -27,12 +27,21 @@
     <ClCompile Include="..\CalculatorLab\calcMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\CalculatorLab\Singleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Button Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\CalculatorLab\Singleton.h">
+    <ClInclude Include="..\CalculatorLab\ButtonFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CalculatorLab\calcMain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

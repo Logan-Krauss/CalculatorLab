@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "wx/wx.h"
 #include "../CalculatorLab/ButtonFactory.h"
 #include "../CalculatorLab/Singleton.h"
 #include "../CalculatorLab/calcMain.h"
@@ -94,13 +93,7 @@ namespace TestingOneTwoTesting
 			std::string ans = "8";
 			Assert::AreEqual(s, ans);
 		}
-		TEST_METHOD(TestMethod12)
-		{
-			Singleton* TestProc = Singleton::GetInstance();
-			std::string s = TestProc->Multiply(16, 2);
-			std::string ans = "31";
-			Assert::AreEqual(s, ans);
-		}
+		
 		TEST_METHOD(TestMethod13)
 		{
 			Singleton* TestProc = Singleton::GetInstance();
@@ -108,13 +101,7 @@ namespace TestingOneTwoTesting
 			std::string ans = "62";
 			Assert::AreEqual(s, ans);
 		}
-		TEST_METHOD(TestMethod14)
-		{
-			Singleton* TestProc = Singleton::GetInstance();
-			std::string s = TestProc->Divide(15, 1);
-			std::string ans = "1";
-			Assert::AreEqual(s, ans);
-		}
+		
 		TEST_METHOD(TestMethod15)
 		{
 			Singleton* TestProc = Singleton::GetInstance();
@@ -156,16 +143,6 @@ namespace TestingOneTwoTesting
 			std::string s = TestProc->Add(2, 97);
 			std::string ans = "99";
 			Assert::AreEqual(s, ans);
-		}
-
-		TEST_METHOD(button1)
-		{
-			/*calcMain* frame = new calcMain();
-			wxButton* btn = nullptr;
-			ButtonFactory* factory = new ButtonFactory(frame);
-			btn = factory->Create(frame, 1, "1", wxPoint(x, y), wxSize(x, y));
-			Assert::AreEqual(btn->GetId(), 1);
-		}*/
-		
+		}	
 	};
 }

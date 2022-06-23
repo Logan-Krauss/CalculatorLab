@@ -136,15 +136,16 @@
     <ClInclude Include="calcMain.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Addition.h" />
+    <ClInclude Include="Singleton.h" />
     <ClInclude Include="Subtracting.h" />
     <ClInclude Include="Division.h" />
     <ClInclude Include="Multiplication.h" />
-    <ClInclude Include="Singleton.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ButtonFactory.cpp" />
     <ClCompile Include="Calc1.cpp" />
     <ClCompile Include="calcMain.cpp" />
+    <ClCompile Include="Singleton.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

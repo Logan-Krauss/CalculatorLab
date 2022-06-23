@@ -89,7 +89,7 @@ public:
         std::string add = std::to_string(one + two);
         return add;
     }
-    
+
     std::string Subtract(int one, int two)
     {
         std::string sub = std::to_string(one - two);
@@ -107,7 +107,8 @@ public:
         std::string div = std::to_string(one / two);
         return div;
     }
-    
+
 };
-Singleton* Singleton::_Singleton = nullptr;
+
+
 

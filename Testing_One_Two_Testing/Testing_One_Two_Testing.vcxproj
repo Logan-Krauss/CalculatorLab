@@ -158,16 +158,19 @@
   <ItemGroup>
     <ClCompile Include="..\CalculatorLab\ButtonFactory.cpp" />
     <ClCompile Include="..\CalculatorLab\calcMain.cpp" />
+    <ClCompile Include="..\CalculatorLab\Singleton.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Button Test.cpp" />
     <ClCompile Include="Testing_One_Two_Testing.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\CalculatorLab\Singleton.h" />
+    <ClInclude Include="..\CalculatorLab\ButtonFactory.h" />
+    <ClInclude Include="..\CalculatorLab\calcMain.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
