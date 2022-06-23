@@ -33,9 +33,9 @@ public:
     {
         std::string results = "";
         int number = baseNumber;
-        for (int i = 0; i < 32; i++)
+        for (int i = 0; i < 8; i++)
         {
-            if (baseNumber % 2 == 0)
+            if (number % 2 == 0)
             {
                 results = "0" + results;
             }
@@ -50,7 +50,7 @@ public:
     }
     std::string GetHexaDecimal()
     {
-        std::string results = ";";
+        std::string results = "";
         int number = baseNumber;
         while (number > 0)
         {
@@ -77,7 +77,7 @@ public:
             else if (mod == 15) {
                 results = "F" + results;
             }
-            results = number % 16;
+            number = number / 16;
         }
         results = "0x" + results;
 

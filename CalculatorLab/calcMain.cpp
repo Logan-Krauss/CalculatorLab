@@ -197,6 +197,24 @@ void calcMain::OnButtonClicked(wxCommandEvent& evt)
 		m_display->AppendText("*");
 		symbCheck = true;
 	}
+	else if (tst == m_btn22) //bin
+	{
+		processor->SetBaseNumber(wxAtoi(m_display->GetValue()));
+		m_display->Clear();
+		m_display->AppendText(processor->GetBinary());
+	}
+	else if (tst == m_btn23) //hex
+	{
+		processor->SetBaseNumber(wxAtoi(m_display->GetValue()));
+		m_display->Clear();
+		m_display->AppendText(processor->GetHexaDecimal());
+	}
+	else if (tst == m_btn24) //dec
+	{
+		processor->SetBaseNumber(wxAtoi(m_display->GetValue()));
+		m_display->Clear();
+		m_display->AppendText(processor->GetDecimal());
+	}
 	else if (tst == m_btn20)
 	{
 		symbCheck = false;
@@ -232,28 +250,7 @@ void calcMain::OnButtonClicked(wxCommandEvent& evt)
 			Multiplication* divv = new Multiplication();
 			m_display->AppendText(divv->Execute(one, two));
 		}
-		//BINHEXDEC
-		/*else if (symbol == "BIN")
-		{
-			one = wxAtoi(sone);
-			two = wxAtoi(stwo);
-			m_display->Clear();
-			m_display->AppendText(processor->GetBinary());
-		}
-		else if (symbol == "HEX")
-		{
-			one = wxAtoi(sone);
-			two = wxAtoi(stwo);
-			m_display->Clear();
-			m_display->AppendText(processor->GetHexaDecimal());
-		}
-		else if (symbol == "DEC")
-		{
-			one = wxAtoi(sone);
-			two = wxAtoi(stwo);
-			m_display->Clear();
-			m_display->AppendText(processor->GetDecimal());
-		}*/
+		
 		sone.clear();
 		stwo.clear();
 		one = 0;
